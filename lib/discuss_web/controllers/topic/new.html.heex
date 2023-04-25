@@ -1,0 +1,8 @@
+<.simple_form :let={form} for={@changeset} action={~p"/topics"} method="post"> 
+  <div class="form-group" font-size = "100%">
+    <.input field={form[:title]} label="Title" />
+  </div>
+  <:actions>
+    <.button>Save</.button>
+  </:actions>
+</.simple_form>
