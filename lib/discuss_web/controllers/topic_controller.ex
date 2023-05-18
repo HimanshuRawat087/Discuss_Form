@@ -6,9 +6,11 @@ defmodule DiscussWeb.TopicController do
   alias Discuss.Repo
 
   def index(conn , _params)do
-    topics = Repo.all(Topic) 
+    topic = Repo.all(Topic) 
 
-    render conn,:index, topics: topics
+   conn
+    |> assign(:topic, topic)
+    |> render(:index)
 
   end
 
@@ -27,7 +29,10 @@ defmodule DiscussWeb.TopicController do
    changeset = Topic.changeset(%Topic{}, topic) 
       
     case Repo.insert(changeset) do
-      {:ok , post} -> IO.inspect(post)
+      {:ok , post} -> 
+        conn
+        |> put_flash(:info , "Topic created")
+        |> redirect(to: ~p"/topics/index")
       {:error, changeset} ->
       render conn , :new ,changeset: changeset
     end
