@@ -1,11 +1,13 @@
 <h2>Topics</h2>
 
 <ul class="collection">
-  <%= for topic <- @topic do %>
-    <li class="collection-item">
+  <li  :for={topic <- @topic} class="collection-item">
       <%= topic.title %>
+      <div class="right">
+        <a href={"/topics/#{topic.id}/edit"}>
+          Edit </a>
+      </div>
     </li>
-  <% end %>
 </ul>
 
 
