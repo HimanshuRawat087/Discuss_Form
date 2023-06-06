@@ -1,7 +1,10 @@
+<h2>Update Title</h2>
+
 <.simple_form :let={f} for={@changeset} action={~p"/topics/#{@topic}"} method="put" >
   <div class="form-group" font-size = "100%">
-    <.input field={f[:title]} label="Update Title" />
+    <.input field={f[:title]}/>
   </div>
+
   <:actions>
     <.button>Save</.button>
     </:actions>

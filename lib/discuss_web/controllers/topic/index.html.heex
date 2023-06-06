@@ -2,18 +2,22 @@
 
 <ul class="collection">
   <li  :for={topic <- @topic} class="collection-item">
-      <%= topic.title %>
-      <div class="right">
-        <a href={"/topics/#{topic.id}/edit"}>
-          Edit </a>
-      </div>
+    <%= topic.title %>
+      
+    <div class="right"> 
+          <.link href={"/topics/#{topic.id}/edit"}>
+            Edit</.link>
+          <.link href={"/topics/#{topic.id}"}  method="delete" data-confirm="Do you wish to delete ?" >
+            Delete</.link>
+
+          </div>
     </li>
 </ul>
 
 
 <div class="fixed-action-btn">
- <a href="/topics/new" class="btn-floating btn-large waves-effect waves-light red">
+ <.link href="/topics/new" class="btn-floating btn-large waves-effect waves-light red">
     <i class="material-icons">add</i>
- </a>
+ </.link>
 </div>
 
